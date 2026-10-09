@@ -1,6 +1,6 @@
 # Refreshing the corpus
 
-Run daily by a Claude Code Routine. Every step is idempotent: if nothing is new, change nothing.
+Run daily by a Claude Code Routine against `main`. Every step is idempotent: if nothing is new, change nothing.
 
 1. **Detect.** `python3 scripts/check_sitemap.py check .sitemap/seen.txt "$TMP/posts"`
    prints each new `claude.dev/blog/<slug>/` URL and saves its markdown plus `manifest.json`.
@@ -18,4 +18,4 @@ Run daily by a Claude Code Routine. Every step is idempotent: if nothing is new,
 4. **Cite.** Add a row per kept post to `agent-dev-playbook/sources.md` (newest first, `Feeds` = files touched)
    and bump the "as of" date.
 5. **Record.** `python3 scripts/check_sitemap.py record .sitemap/seen.txt "$TMP/posts"`.
-6. **Publish.** Commit (`Refresh corpus: <post titles>`) and push to the default branch.
+6. **Publish.** Commit (`Refresh corpus: <post titles>`) and push to `main`.
