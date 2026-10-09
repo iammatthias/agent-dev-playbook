@@ -1,9 +1,11 @@
 # Sources
 
-All from https://claude.dev/blog/ (full sitemap as of 2026-10-05). Append `.md` to a post URL for clean markdown.
+All from https://claude.dev/blog/ (full sitemap as of 2026-10-09). Append `.md` to a post URL for clean markdown.
 
 | Date | Post | Feeds |
 |---|---|---|
+| 2026-10-08 | [Building effective agent automations](https://claude.dev/blog/building-effective-agent-automations/) | agent-automations |
+| 2026-10-06 | [Claude Code in the cloud: a field guide to cloud sessions](https://claude.dev/blog/claude-code-in-the-cloud/) | cloud-sessions |
 | 2026-10-01 | [Getting started with Claude Code mods](https://claude.dev/blog/getting-started-with-claude-code-mods/) | mods |
 | 2026-09-28 | [Automating eval design and hillclimbing with Claude](https://claude.dev/blog/automating-eval-design-and-hillclimbing/) | evals |
 | 2026-09-28 | [Building with Claude Sonnet 5.5](https://claude.dev/blog/building-with-claude-sonnet-5-5/) | models-and-effort, caching-and-cost |

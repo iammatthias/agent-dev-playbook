@@ -1,6 +1,6 @@
 ---
 name: agent-dev-playbook
-description: Anthropic's own best practices for building with Claude and Claude Code (claude.dev blog corpus, through Oct 2026). Use when writing or trimming CLAUDE.md, skills, system prompts or tool definitions; designing an agent harness or tools; choosing model/effort or cutting cost; setting up prompt caching; planning long runs, subagents or dynamic workflows; building evals or hillclimbing; running a measure-and-optimize loop; writing Claude Code mods; or migrating to Opus 5.5 / Sonnet 5.5.
+description: Anthropic's own best practices for building with Claude and Claude Code (claude.dev blog corpus, through Oct 2026). Use when writing or trimming CLAUDE.md, skills, system prompts or tool definitions; designing an agent harness or tools; choosing model/effort or cutting cost; setting up prompt caching; planning long runs, subagents or dynamic workflows; building evals or hillclimbing; running a measure-and-optimize loop; writing Claude Code mods; running Claude Code cloud sessions or routines; building scheduled agent automations; or migrating to Opus 5.5 / Sonnet 5.5.
 ---
 
 # Agent dev playbook
@@ -22,6 +22,8 @@ A distilled corpus of the claude.dev engineering blog. Each reference file is on
 | Building an eval, validating a grader, hillclimbing without overfitting | `references/evals.md` |
 | Specs, plans, reports, reviews, throwaway editors as HTML instead of Markdown | `references/html-outputs.md` |
 | Writing a Claude Code mod (hooks/UI inside a session) | `references/mods.md` |
+| Claude Code cloud sessions: `--cloud`, teleport, routines, auto-fix, environment setup, GitHub connection errors | `references/cloud-sessions.md` |
+| Scheduled/background agent that reads sources and posts a digest (Managed Agents): bookmarks, memory, guardrails, spend caps | `references/agent-automations.md` |
 
 ## Core stance (applies everywhere)
 
