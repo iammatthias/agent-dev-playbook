@@ -1,9 +1,10 @@
 # Sources
 
-All from https://claude.dev/blog/ (full sitemap as of 2026-10-09). Append `.md` to a post URL for clean markdown.
+All from https://claude.dev/blog/ (full sitemap as of 2026-10-16). Append `.md` to a post URL for clean markdown.
 
 | Date | Post | Feeds |
 |---|---|---|
+| 2026-10-15 | [How the Claude Code team does code review](https://claude.dev/blog/solving-code-review-at-anthropic/) | code-review |
 | 2026-10-08 | [Building effective agent automations](https://claude.dev/blog/building-effective-agent-automations/) | agent-automations |
 | 2026-10-06 | [Claude Code in the cloud: a field guide to cloud sessions](https://claude.dev/blog/claude-code-in-the-cloud/) | cloud-sessions |
 | 2026-10-01 | [Getting started with Claude Code mods](https://claude.dev/blog/getting-started-with-claude-code-mods/) | mods |
