@@ -1,6 +1,6 @@
 ---
 name: agent-dev-playbook
-description: Anthropic's own best practices for building with Claude and Claude Code (claude.dev blog corpus, through Oct 2026). Use when writing or trimming CLAUDE.md, skills, system prompts or tool definitions; designing an agent harness or tools; choosing model/effort or cutting cost; setting up prompt caching; planning long runs, subagents or dynamic workflows; building evals or hillclimbing; running a measure-and-optimize loop; writing Claude Code mods; running Claude Code cloud sessions or routines; building scheduled agent automations; setting up AI code review, `REVIEW.md` or risk-tiered approvals for agent-written PRs; or migrating to Opus 5.5 / Sonnet 5.5.
+description: Anthropic's own best practices for building with Claude and Claude Code (claude.dev blog corpus, through Nov 2026). Use when writing or trimming CLAUDE.md, skills, system prompts or tool definitions; designing an agent harness or tools; choosing model/effort or cutting cost; setting up prompt caching; planning long runs, subagents or dynamic workflows; building evals or hillclimbing; running a measure-and-optimize loop; writing Claude Code mods; running Claude Code cloud sessions or routines; building scheduled agent automations; setting up AI code review, `REVIEW.md` or risk-tiered approvals for agent-written PRs; running or sandboxing large multi-agent teams (shared-DB coordination, monitors); or migrating to / choosing between Haiku 5.5, Sonnet 5.5, Opus 5.5 and Fable 5.2.
 ---
 
 # Agent dev playbook
@@ -15,9 +15,10 @@ A distilled corpus of the claude.dev engineering blog. Each reference file is on
 | Creating, structuring, or debugging a skill (undertriggering, railroaded, bloated) | `references/skills.md` |
 | Designing tools or a harness; deciding add vs. remove a tool; elicitation; search | `references/tools-and-harness.md` |
 | Cost spikes, cache misses, compaction, switching models/tools mid-session | `references/caching-and-cost.md` |
-| Which model, which effort level, Sonnet 5.5 API migration / breaking changes | `references/models-and-effort.md` |
+| Which model (Haiku/Sonnet/Opus/Fable), effort level, prices, mixing models, subagent models, Sonnet 5.5 / Haiku 5.5 migration breaking changes | `references/models-and-effort.md` |
 | Long autonomous runs, when Claude should stop vs. continue, reviewing results | `references/long-runs.md` |
 | Parallel work, subagents, dynamic workflows, verification, triage, sorting | `references/workflows.md` |
+| Dozens–1,000 agents on one goal: shared-DB coordination, task trees, sandboxing and real-time/offline monitoring | `references/multi-agent-teams.md` |
 | Making something measurably faster/better; benchmarks, ratchets, guardrails | `references/measure-and-climb.md` |
 | Building an eval, validating a grader, hillclimbing without overfitting | `references/evals.md` |
 | Specs, plans, reports, reviews, throwaway editors as HTML instead of Markdown | `references/html-outputs.md` |
