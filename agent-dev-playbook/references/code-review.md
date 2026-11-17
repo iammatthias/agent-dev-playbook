@@ -6,7 +6,7 @@ Stance: "did a human read it?" is a proxy for "what could go wrong, and which ch
 
 ## Layers (each leaks; later ones catch the rest)
 
-1. **Verify before the PR.** Give Claude something runnable (tests, build, screenshot vs. design) and ask for output, not "done"; then a fresh-context subagent reviews the diff. Skills for bug-hunt, simplify, end-to-end check. Verification ≈ 2–3× better results.
+1. **Verify before the PR.** Give Claude something runnable (tests, build, screenshot vs. design) and ask for output, not "done"; then a fresh-context subagent reviews the diff. Skills for bug-hunt, simplify, end-to-end check. Verification ≈ 2–3× better results. Test types, `verify` skill, commit gates: `verification.md`.
 2. **AI review on every PR.** Reads diff against whole repo + stated intent; on bug fixes looks for root cause. `/code-review` locally, Code Review for Claude Code (Team/Enterprise; Quick/Standard/Deep per repo, Deep where a miss is costly). Substantive-comment share 16%→54% at launch.
    - Multiple agents hunt in parallel, a separate group votes on each finding, posted only if enough agree; style/diagnostic/cleanup-only findings dropped. Inline, tagged Important / Nit / Pre-existing.
    - Every finding gets fixed or resolved with a reason.

@@ -1,9 +1,10 @@
 # Sources
 
-All from https://claude.dev/blog/ (full sitemap as of 2026-11-10). Append `.md` to a post URL for clean markdown.
+All from https://claude.dev/blog/ (full sitemap as of 2026-11-17). Append `.md` to a post URL for clean markdown.
 
 | Date | Post | Feeds |
 |---|---|---|
+| 2026-11-16 | [How the Claude Code team thinks about verification](https://claude.dev/blog/how-the-claude-code-team-thinks-about-verification/) | verification |
 | 2026-11-09 | [Safely scaling multi-agent teams with Claude Fable 5.2](https://claude.dev/blog/safely-scaling-multi-agent-teams-with-fable-5-2/) | multi-agent-teams |
 | 2026-11-09 | [Which Claude model should you build with?](https://claude.dev/blog/which-claude-model-should-you-build-with/) | models-and-effort |
 | 2026-10-15 | [How the Claude Code team does code review](https://claude.dev/blog/solving-code-review-at-anthropic/) | code-review |
