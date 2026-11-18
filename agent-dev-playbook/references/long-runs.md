@@ -1,6 +1,6 @@
 # Long autonomous runs
 
-Sources: "Getting the most out of Opus 5.5" (Sep 2026); dynamic workflows post; cost post.
+Sources: "Getting the most out of Opus 5.5" (Sep 2026); dynamic workflows post; cost post; Claude Docs chaos-loop post (Nov 2026).
 
 ## Kick-off
 
@@ -35,6 +35,8 @@ Keep permission prompts on for destructive commands regardless. For pair-program
 - **Goal drift** — constraints lost across turns/compaction.
 
 Mitigate with file-based task lists, finish lines, `/goal` hard completion requirements, and separate-context workflows (`workflows.md`).
+
+Goal drift is much reduced on the newest frontier models: in the Claude Docs chaos loop (Fable 5.2-class model, two weeks continuous) the stated invariants held across many compactions without being restated, where older models needed the goal repeated after 10–20 iterations. Still state invariants explicitly at the start (`measure-and-climb.md`, chaos loop).
 
 ## Reviewing results
 

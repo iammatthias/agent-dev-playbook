@@ -1,6 +1,6 @@
 ---
 name: agent-dev-playbook
-description: Anthropic's own best practices for building with Claude and Claude Code (claude.dev blog corpus, through Nov 2026). Use when writing or trimming CLAUDE.md, skills, system prompts or tool definitions; designing an agent harness or tools; choosing model/effort or cutting cost; setting up prompt caching; planning long runs, subagents or dynamic workflows; building evals or hillclimbing; running a measure-and-optimize loop; writing Claude Code mods; running Claude Code cloud sessions or routines; building scheduled agent automations; setting up AI code review, `REVIEW.md` or risk-tiered approvals for agent-written PRs; giving agents verification loops (E2E/property/differential tests, a `verify` skill, commit gates); running or sandboxing large multi-agent teams (shared-DB coordination, monitors); or migrating to / choosing between Haiku 5.5, Sonnet 5.5, Opus 5.5 and Fable 5.2.
+description: Anthropic's own best practices for building with Claude and Claude Code (claude.dev blog corpus, through Nov 2026). Use when writing or trimming CLAUDE.md, skills, system prompts or tool definitions; designing an agent harness or tools; choosing model/effort or cutting cost; setting up prompt caching; planning long runs, subagents or dynamic workflows; building evals or hillclimbing; running a measure-and-optimize loop; load-testing or hardening a service for scale with a chaos loop; writing Claude Code mods; running Claude Code cloud sessions or routines; building scheduled agent automations; setting up AI code review, `REVIEW.md` or risk-tiered approvals for agent-written PRs; giving agents verification loops (E2E/property/differential tests, a `verify` skill, commit gates); running or sandboxing large multi-agent teams (shared-DB coordination, monitors); or migrating to / choosing between Haiku 5.5, Sonnet 5.5, Opus 5.5 and Fable 5.2.
 ---
 
 # Agent dev playbook
@@ -19,7 +19,7 @@ A distilled corpus of the claude.dev engineering blog. Each reference file is on
 | Long autonomous runs, when Claude should stop vs. continue, reviewing results | `references/long-runs.md` |
 | Parallel work, subagents, dynamic workflows, verification, triage, sorting | `references/workflows.md` |
 | Dozens–1,000 agents on one goal: shared-DB coordination, task trees, sandboxing and real-time/offline monitoring | `references/multi-agent-teams.md` |
-| Making something measurably faster/better; benchmarks, ratchets, guardrails | `references/measure-and-climb.md` |
+| Making something measurably faster/better; benchmarks, ratchets, guardrails; hardening a service for launch scale with a chaos / load-test loop on staging | `references/measure-and-climb.md` |
 | Building an eval, validating a grader, hillclimbing without overfitting | `references/evals.md` |
 | Specs, plans, reports, reviews, throwaway editors as HTML instead of Markdown | `references/html-outputs.md` |
 | Writing a Claude Code mod (hooks/UI inside a session) | `references/mods.md` |

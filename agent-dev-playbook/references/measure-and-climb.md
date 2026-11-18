@@ -1,6 +1,6 @@
 # Measure-and-climb loop (performance and beyond)
 
-Source: "How we made claude.ai 3x faster in two weeks" (Sep 2026). 13 journey measurements, 3.1× geomean faster, 3,000+ changes, zero customer incidents or rollbacks.
+Sources: "How we made claude.ai 3x faster in two weeks" (Sep 2026) — 13 journey measurements, 3.1× geomean faster, 3,000+ changes, zero customer incidents or rollbacks; "Using a 'chaos loop' to harden the Claude Docs launch" (Nov 2026) — see last section.
 
 **Central lesson: with Claude, measuring something makes it tractable.** Measurement is step one of the climb, not step zero. The highest-leverage human activity is finding more things to measure.
 
@@ -48,3 +48,29 @@ Scale horizontally: many narrow threads (150+ concurrent). Claude increasingly o
 ## Finds worth remembering
 
 Repeated megamorphic lookups of the same ID; 6,900 hooks re-rendering per keystroke; one `:root:has()` selector costing 24 ms per DOM change; a stray `location.reload()`; redundant IndexedDB clones on main thread; non-Latin-1 chars (em dashes) forcing V8 two-byte strings onto slow regex paths; Chrome prerender height mismatch from managed-browser footers.
+
+## Chaos loop (same climb, for reliability and scale)
+
+Claude Docs launch: single-node proof of concept → 4.6M docs in 6 days, 60 server errors in 2B requests, 629 prod rolls in the month, no rollbacks, ~50 pods. One engineer, two weeks of a continuously running loop on staging.
+
+**The loop:** pick a scenario → harness pushes one feature to saturation and breaks things → Claude reads telemetry (observability MCP) → short menu of options + a recommendation → easy to undo: Claude writes it, a separate session reviews it, deploy to staging, rerun; hard to undo: stop and ask.
+
+- **Staging mirrors production at launch scale**, driven by synthetic load (~10× real traffic is a good start). A few thousand real users on one machine say nothing about launch.
+- **Pick scenarios that feel paranoid:** 10M docs created in a day; 22,000 connections reconnecting at once; one hot doc with hundreds of viewers; a server killed mid-load; the database stalling; a deploy in the middle of a spike. 7 of 10 rehearsed scenarios then happened in prod.
+- **Write the invariants down before starting** and hand them to Claude (theirs: docs open near-instantly even with long history; an acknowledged edit is never lost). Tests check them every iteration.
+- **Name the approval list up front:** anything hard to undo — schema, key layout, storage/materialization format. Claude stops there with options and a recommendation.
+- **Ship fixes behind runtime flags**, so the launch-week response to pressure is flipping a flag, not writing code.
+- **Shape:** one coordinator session handing work to sub-agents (~11 at a time, 30 at peak). If that burns too many tokens per hour, a single agent works too.
+
+### Make the system legible to Claude
+
+Claude hill-climbs best on a clean signal: every number it measures should trace back to code you wrote.
+
+- **Telemetry on every operation**, e.g. each DB query reports its name and rows scanned vs. rows returned — enough to spot and rewrite a bad query.
+- **Claude adds the telemetry that's missing each iteration** rather than after something breaks.
+- **Expect wrong first guesses, and let the next run kill them.** A 3 GB doc: shrinking a cache did nothing (the memory was in a dependency's own cache) so the change was dropped; finer-grained profiling found every keystroke copying the doc into several structures; copy-on-write took it to ~180 MB in ~3 days and cut the pod estimate from 500+ to ~50.
+- **Lean the stack toward measurability.** They chose Rust (no GC shifting memory and latency on its own schedule) and minimal dependencies, vendoring the few they kept so they could be read and measured. This was a bet, not a bake-off against Go. "Hard for people to write" matters much less when Claude writes it.
+
+### Cost
+
+~$125k of Fable 5.2 list-price inference for the launch-scale push (author's estimate: about half was avoidable process experimentation). Author's untested estimate for a small stack (a couple of Kubernetes nodes + Postgres): $3k–$10k for two weeks. Spend went to reading telemetry, proposals, fixes and review.
